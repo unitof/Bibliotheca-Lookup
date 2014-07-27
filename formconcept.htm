@@ -91,8 +91,8 @@
 		}
 
 		function doHTMLMagic(str, vol) {
-			var currentDiv = document.getElementById("biblioref");
-			var upcomingDiv = document.getElementById("fadingin");
+			var currentDiv = document.getElementById("biblioref_curr");
+			var upcomingDiv = document.getElementById("biblioref_next");
 			var currentResult = document.getElementById("currentresult");
 			var upcomingResult = document.getElementById("upcomingresult");
 
@@ -344,10 +344,10 @@
 	</form>
 </div>
 <div class="container">
-	<div class="box fadedin" id="biblioref">
+	<div class="box fadedin" id="biblioref_curr">
 		<h3 id="currentresult">Oh come on! You can figure Genesis out.</h3>
 	</div>
-	<div class="box fadedout" id="fadingin">
+	<div class="box fadedout" id="biblioref_next">
 		<h3 id="upcomingresult"></h3>
 	</div>
 </div>

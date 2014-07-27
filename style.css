@@ -37,12 +37,12 @@ div.container {
 	-webkit-transition: all 1s;
 }
 
-#fadingin, #fadingin_TEMP {
+#biblioref_next, #biblioref_next_TEMP {
 	position: absolute;
 	top: 0;
 	width: 100%;
 }
 
-#biblioref, #biblioref_TEMP {
+#biblioref_curr, #biblioref_curr_TEMP {
 	position: relative;
 }
