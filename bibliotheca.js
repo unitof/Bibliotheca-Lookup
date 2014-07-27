@@ -214,14 +214,6 @@ function displayBiblioPage(book, chap, vers) {
 		e.className = e.className.replace(findRE, replace);
 	}
 
-	function swapIds(e1, e2) {
-		e1OrigId = e1.id;
-		e2OrigId = e2.id;
-		e1.id = e1.id + "_TEMP";
-		e2.id = e1OrigId;
-		e1.id = e2OrigId;
-	}
-
 	function doHTMLMagic(str, vol) {
 		var currentRef = document.getElementById("currentresult");
 		var upcomingRef = document.getElementById("upcomingresult");
@@ -234,6 +226,18 @@ function displayBiblioPage(book, chap, vers) {
 		swapIds(upcomingRef, currentRef);
 	}
 
+	function doNewHTMLMagic(v, p) {
+		var resultFull = document.getElementById("biblio_full")
+		var volSpan = document.getElementById("biblio_vol");
+		var pagSpan = document.getElementById("biblio_pag");
+		var refBoxDiv = document.getElementById("bibliorefdiv");
+
+		setTextColor(resultFull, v);
+		setBorderColor(refBoxDiv, v);
+		setText(volSpan, v);
+		setText(pagSpan, p);
+	}
+
 	if (book == "") {intBook = 0;}
 	if (chap == "") {intChap = 0;}
 	if (vers == "") {intVers = 0;}
@@ -243,7 +247,5 @@ function displayBiblioPage(book, chap, vers) {
 	var BiblioVol = extBiblioVol(BiblioIndex);
 	var BiblioPage = extBiblioPage(BiblioIndex);
 
-	var LookupStr = buildBiblioStr(BiblioVol, BiblioPage);
-	doHTMLMagic(LookupStr, BiblioVol);
-
+	doNewHTMLMagic(BiblioVol, BiblioPage);
 }
