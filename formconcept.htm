@@ -91,20 +91,15 @@
 		}
 
 		function doHTMLMagic(str, vol) {
-			var currentDiv = document.getElementById("biblioref_curr");
-			var upcomingDiv = document.getElementById("biblioref_next");
-			var currentResult = document.getElementById("currentresult");
-			var upcomingResult = document.getElementById("upcomingresult");
+			var currentRef = document.getElementById("currentresult");
+			var upcomingRef = document.getElementById("upcomingresult");
+			var refBoxDiv = document.getElementById("bibliorefdiv");
 
-			swapIds(upcomingDiv, currentDiv);
-			swapIds(upcomingResult, currentResult);
+			setText(upcomingRef, str);
+			setTextColor(upcomingRef, vol);
+			setBorderColor(refBoxDiv, vol);
 
-			setText(upcomingResult, str);
-			setTextColor(upcomingResult, vol);
-			setBorderColor(upcomingDiv, vol);
-
-			replaceClass(currentDiv, "fadedin", "fadedout");
-			replaceClass(upcomingDiv, "fadedout", "fadedin");
+			swapIds(upcomingRef, currentRef);
 		}
 
 		if (book == "") {intBook = 0;}
@@ -343,11 +338,9 @@
 		<!-- <input type="button" name="button" value="Look up" onclick="displayBiblioPage(book.value, chapter.value, verse.value)"> -->
 	</form>
 </div>
-<div class="container">
-	<div class="box fadedin" id="biblioref_curr">
-		<h3 id="currentresult">Oh come on! You can figure Genesis out.</h3>
-	</div>
-	<div class="box fadedout" id="biblioref_next">
+<div class="box" id="bibliorefdiv" style="border-color: rgb(51, 51, 51);">
+	<div class="container">
+		<h3 id="currentresult">&nbsp;</h3>
 		<h3 id="upcomingresult"></h3>
 	</div>
 </div>
