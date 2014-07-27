@@ -31,3 +31,8 @@ div.container {
 	trasition: all 1s;
 	-webkit-transition: all 1s;
 }
+
+span.ref_span {
+	display: inline-block;
+	-webkit-transition: width 2s;
+}
