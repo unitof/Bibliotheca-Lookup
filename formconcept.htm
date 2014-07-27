@@ -43,8 +43,68 @@
 			return pageStr;
 		}
 
-		function setHTML(BiblioStr) {
-			document.getElementById("biblioref").innerHTML = BiblioStr;
+		function getVolColor(v) {
+			switch (v) {
+				case 1:
+					return "#bbbbbb";
+					break;
+				case 2:
+					return "#999999";
+					break;
+				case 3:
+					return "#666666";
+					break;
+				case 4:
+					return "#333333";
+					break;
+				default:
+					return "null";
+			}
+		}
+
+		function setText(ele, str) {
+			ele.innerHTML = str;
+		}
+
+		function setBorderColor(ele, vol) {
+			var color = getVolColor(vol);
+			ele.style.borderColor = color;
+		}
+
+		function setTextColor(ele, vol) {
+			var color = getVolColor(vol);
+			ele.style.color = color;
+		}
+
+		function replaceClass(e, o, n) {
+			var findRE = new RegExp("(?:^|\\s)" + o + "(?!\\S)", "g");
+			var replace = " " + n;
+			e.className = e.className.replace(findRE, replace);
+		}
+
+		function swapIds(e1, e2) {
+			e1OrigId = e1.id;
+			e2OrigId = e2.id;
+			e1.id = e1.id + "_TEMP";
+			e2.id = e1OrigId;
+			e1.id = e2OrigId;
+		}
+
+		function doHTMLMagic(str, vol) {
+			var currentDiv = document.getElementById("biblioref");
+			var upcomingDiv = document.getElementById("fadingin");
+			var currentResult = document.getElementById("currentresult");
+			var upcomingResult = document.getElementById("upcomingresult");
+
+			swapIds(upcomingDiv, currentDiv);
+			swapIds(upcomingResult, currentResult);
+
+			setText(upcomingResult, str);
+			setTextColor(upcomingResult, vol);
+			setBorderColor(upcomingDiv, vol);
+
+			replaceClass(currentDiv, "fadedin", "fadedout");
+			replaceClass(upcomingDiv, "fadedout", "fadedin");
 		}
 
 		if (book == "") {intBook = 0;}
@@ -53,9 +113,11 @@
 
 		var BibleIndex = parseInt("" + pad(book, 2) + pad(chap, 3) + pad(vers, 3));
 		var BiblioIndex = getBiblioIndex(BibleIndex);
+		var BiblioVol = extBiblioVol(BiblioIndex);
+		var BiblioPage = extBiblioPage(BiblioIndex);
 
-		var LookupStr = buildBiblioStr(extBiblioVol(BiblioIndex), extBiblioPage(BiblioIndex));
-		setHTML(LookupStr);
+		var LookupStr = buildBiblioStr(BiblioVol, BiblioPage);
+		doHTMLMagic(LookupStr, BiblioVol);
 
 	}</script>
 	<script type="text/javascript">
@@ -281,8 +343,13 @@
 		<!-- <input type="button" name="button" value="Look up" onclick="displayBiblioPage(book.value, chapter.value, verse.value)"> -->
 	</form>
 </div>
-<div class="box">
-	<h3 id="biblioref">Oh come on! You can figure Genesis out.</h3>
+<div class="container">
+	<div class="box fadedin" id="biblioref">
+		<h3 id="currentresult">Oh come on! You can figure Genesis out.</h3>
+	</div>
+	<div class="box fadedout" id="fadingin">
+		<h3 id="upcomingresult"></h3>
+	</div>
 </div>
 </body>
 </html>
