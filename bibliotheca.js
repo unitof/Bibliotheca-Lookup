@@ -232,7 +232,7 @@ function displayBiblioPage(book, chap, vers) {
 		var pagSpan = document.getElementById("biblio_pag");
 		var refBoxDiv = document.getElementById("bibliorefdiv");
 
-		setTextColor(resultFull, v);
+		setTextColor(refBoxDiv, v);
 		setBorderColor(refBoxDiv, v);
 		setText(volSpan, v);
 		setText(pagSpan, p);
