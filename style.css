@@ -25,24 +25,23 @@ div.container {
 	position: relative;
 }
 
-.fadedout {
-	opacity: 0;
+#upcomingresult, #upcomingresult_TEMP, #currentresult, #currentresult_TEMP, #bibliorefdiv {
+	margin: 0;
+	padding: 1em 0;
 	trasition: all 1s;
 	-webkit-transition: all 1s;
 }
 
-.fadedin {
-	opacity: 1;
-	trasition: all 1s;
-	-webkit-transition: all 1s;
-}
-
-#biblioref_next, #biblioref_next_TEMP {
+#upcomingresult, #upcomingresult_TEMP {
 	position: absolute;
 	top: 0;
 	width: 100%;
+
+	opacity: 0;
 }
 
-#biblioref_curr, #biblioref_curr_TEMP {
+#currentresult, #currentresult_TEMP {
 	position: relative;
+
+	opacity: 1;
 }
