@@ -25,17 +25,22 @@ div.container {
 	position: relative;
 }
 
+
+
 #upcomingresult, #upcomingresult_TEMP, #currentresult, #currentresult_TEMP, #bibliorefdiv {
-	margin: 0;
-	padding: 1em 0;
 	trasition: all 1s;
 	-webkit-transition: all 1s;
 }
 
+#upcomingresult, #upcomingresult_TEMP, #currentresult, #currentresult_TEMP {
+	margin: 0;
+	padding: 1em 0;
+	width: 100%;
+}	
+
 #upcomingresult, #upcomingresult_TEMP {
 	position: absolute;
 	top: 0;
-	width: 100%;
 
 	opacity: 0;
 }
