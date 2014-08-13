@@ -8,7 +8,8 @@ body {
 	padding: 20px;
 	margin: 0 auto;
 	color: #888888;
-	font-family: 'FuturaMedium', Futura, 'Trebuchet MS', Arial, sans-serif;
+	font-family: Futura-Medium, Futura, 'Trebuchet MS', Arial, sans-serif;
+	font-weight: normal;
 	text-transform: uppercase;
 }
 
@@ -26,16 +27,19 @@ div.container {
 }
 
 #upcomingresult, #upcomingresult_TEMP, #currentresult, #currentresult_TEMP, #bibliorefdiv {
-	margin: 0;
-	padding: 1em 0;
 	trasition: all 1s;
 	-webkit-transition: all 1s;
+}
+
+#upcomingresult, #upcomingresult_TEMP, #currentresult, #currentresult_TEMP {
+	margin: 0;
+	padding: 1em 0;
+	width: 100%;
 }
 
 #upcomingresult, #upcomingresult_TEMP {
 	position: absolute;
 	top: 0;
-	width: 100%;
 
 	opacity: 0;
 }
