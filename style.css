@@ -8,8 +8,8 @@ body {
 	padding: 20px;
 	margin: 0 auto;
 	color: #888888;
-	font-family: Futura-Medium;
-	font-weight: normal;
+	text-decoration: none;
+	font-family:Futura-Medium;
 	text-transform: uppercase;
 }
 
@@ -35,6 +35,7 @@ div.container {
 	margin: 0;
 	padding: 1em 0;
 	width: 100%;
+	font-weight: normal; /* Futura-Medium fix for Safari Mobile */
 }
 
 #upcomingresult, #upcomingresult_TEMP {
