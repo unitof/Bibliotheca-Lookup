@@ -178,16 +178,16 @@ function displayBiblioPage(book, chap, vers) {
 	function getVolColor(v) {
 		switch (v) {
 			case 1:
-				return "#bbbbbb";
+				return "#333333";
 				break;
 			case 2:
-				return "#999999";
-				break;
-			case 3:
 				return "#666666";
 				break;
+			case 3:
+				return "#999999";
+				break;
 			case 4:
-				return "#333333";
+				return "#bbbbbb";
 				break;
 			default:
 				return "null";
